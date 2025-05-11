@@ -1,18 +1,23 @@
+import { Link } from "react-router-dom";
+
+
 function Header() {
   return (
     <nav>
-        <div className="flex ">
+        <div className="flex">
             <a href="#">Feira Aí</a>
             <div>
-            <a href="#inicio">Início</a>
-            <a href="#produtos">Produtos</a>
-            <a href="#pedidos">Meus Pedidos</a>
-            <a href="#contato">Contato / Ajuda</a>
-            <button type="button"></button>
+              <Link to="/Home">Início</Link>
+              <Link to="/Products">Produtos</Link>
+              <Link to="/MyOrders">Meus Pedidos</Link>
+              <Link to="/Contact">Contato / Ajuda</Link>
+              <Link to="/Auth">
+                <button type="button">Entrar / Cadastrar</button>
+              </Link>
             </div>
         </div>
     </nav>
   )
 }
 
-export default Header
+export default Header;
