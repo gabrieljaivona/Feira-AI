@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 
 function Header() {
@@ -7,13 +7,13 @@ function Header() {
         <div className="flex">
             <a href="#">Feira Aí</a>
             <div>
-              <Link to="/Home">Início</Link>
-              <Link to="/Products">Produtos</Link>
-              <Link to="/MyOrders">Meus Pedidos</Link>
-              <Link to="/Contact">Contato / Ajuda</Link>
-              <Link to="/Auth">
+              <NavLink to="/Home">Início</NavLink>
+              <NavLink to="/Products">Produtos</NavLink>
+              <NavLink to="/MyOrders">Meus Pedidos</NavLink>
+              <NavLink to="/Contact">Contato / Ajuda</NavLink>
+              <NavLink to="/Auth">
                 <button type="button">Entrar / Cadastrar</button>
-              </Link>
+              </NavLink>
             </div>
         </div>
     </nav>

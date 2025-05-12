@@ -7,28 +7,22 @@ import MyOrders from './pages/MyOrders.tsx'
 import Products from './pages/Products.tsx'
 import Contact from './pages/Contact.tsx'
 import Auth from './pages/Auth.tsx'
+import NotFound from './pages/NotFound.tsx'
 
 const router = createBrowserRouter([
   {
     path:"/",
-    element: <App />
+    element: <App />,
+    children: [
+      {index: true, element: <div>Home Page</div> },
+      {path: "Products", element: <Products /> },
+      {path: "MyOrders", element: <MyOrders /> },
+      {path: "Contact", element: <Contact /> },
+      {path: "Auth", element: <Auth /> },
+      {path: "*", element: <NotFound />}
+    ]
   },
-  {
-    path:"/Products",
-    element: <Products />
-  },
-  {
-    path:"/MyOrders",
-    element: <MyOrders />
-  },
-  {
-    path:"/Contact",
-    element: <Contact />
-  },
-  {
-    path:"/Auth",
-    element: <Auth />
-  },
+  
   
 ])
 
