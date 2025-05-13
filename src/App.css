@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+:root {
+    --background: 48 100% 94%; /* #FFF8E1 Beige Areia / Fundo */
+    --foreground: 19 25% 34%; /* #6D4C41 Marrom Terroso (Textos/Títulos) */
+}
