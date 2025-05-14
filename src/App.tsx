@@ -1,13 +1,11 @@
 import './App.css'
-import BoxWelcome from './components/BoxWelcome'
-import Header from './components/Header'
+import FairsNearby from './components/FairsNearby'
 
 function App() {
 
   return (
-    <div className='App'>
-      
-      <BoxWelcome/>
+    <div className='App bg-[#FFF8E1]'>
+      <FairsNearby/>
       <main>
         
       </main>
