@@ -1,12 +1,14 @@
 import './App.css'
-import FairsNearby from './components/FairsNearby'
+import ContentMyOrders from './components/ContentMyOrders'
+
 
 function App() {
 
   return (
     <div className='App bg-[#FFF8E1]'>
-      <FairsNearby/>
+      <ContentMyOrders/>
       <main>
+        
         
       </main>
     </div>
