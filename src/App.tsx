@@ -1,12 +1,12 @@
 import './App.css'
-import ContentMyOrders from './components/ContentMyOrders'
+import BoxContact from './components/BoxContact'
 
 
 function App() {
 
   return (
     <div className='App bg-[#FFF8E1]'>
-      <ContentMyOrders/>
+      <BoxContact/>
       <main>
         
         
