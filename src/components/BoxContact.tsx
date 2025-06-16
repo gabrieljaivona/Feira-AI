@@ -1,6 +1,11 @@
 import { useState } from "react"
 
-const faqs = [
+interface FAQ {
+  question: string
+  answer: string
+}
+
+const faqs: FAQ[] = [
   {
     question: "Como faço um pedido?",
     answer: "Navegue pela seção 'Produtos', selecione a cidade e a feira desejada. Adicione os produtos ao seu carrinho e finalize o pedido. Você receberá uma confirmação e poderá retirar seus produtos no dia e local da feira."
@@ -20,8 +25,7 @@ const faqs = [
 ]
 
 function BoxContact() {
-  const [faqOpen, setFaqOpen] = useState();
-
+  const [faqOpen, setFaqOpen] = useState(null);
 
   return (
     <section className="flex flex-row items-center justify-center gap-4">
@@ -47,17 +51,41 @@ function BoxContact() {
         </div>
 
         <div className="p-2 bg-white w-150 h-70 p-5 text-[#6D4C41] flex flex-col gap-4 border-[#E5E7EB] border-1 shadow-xl">
-            <div>
-              <span></span>
+            <div className="font-bold text-xl">
               <h4>Dúvidas Frequentes (FAQ)</h4>
             </div>
-            <div>
-              <button className="flex flex-row justify-between">
-                <p>Como faço um pedido?</p>
+
+            <div className="border-b-1">
+              <button className="flex flex-row justify-between font-medium hover:text-green-600">
+                <p>{faqs[0].question}</p>
                 <span>icon</span>
               </button>
               
-              <div></div>
+              <p>{faqs[0].answer}</p>
+            </div>
+            <div>
+              <button className="flex flex-row justify-between font-medium hover:text-green-600">
+                <p>{faqs[1].question}</p>
+                <span>icon</span>
+              </button>
+              
+              <p>{faqs[1].answer}</p>
+            </div>
+            <div>
+              <button className="flex flex-row justify-between font-medium hover:text-green-600">
+                <p>{faqs[2].question}</p>
+                <span>icon</span>
+              </button>
+              
+              <p>{faqs[2].answer}</p>
+            </div>
+            <div>
+              <button className="flex flex-row justify-between font-medium hover:text-green-600">
+                <p>{faqs[3].question}</p>
+                <span>icon</span>
+              </button>
+              
+              <p>{faqs[3].answer}</p>
             </div>
             
         </div>
