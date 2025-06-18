@@ -1,8 +1,17 @@
 import { useState } from "react"
 
+interface Contact {
+  telefone: string;
+  email: string;
+}
 interface FAQ {
   question: string
   answer: string
+}
+
+const contact: Contact = {
+  telefone: "(XX) 9XXXX-XXXX",
+  email: "contato@feiraai.com.br"
 }
 
 const faqs: FAQ[] = [
@@ -25,11 +34,15 @@ const faqs: FAQ[] = [
 ]
 
 function BoxContact() {
-  const [faqOpen, setFaqOpen] = useState(null);
+  const [faqOpen, setFaqOpen] = useState<number | null>(null);
+
+  const toggle = (index: number) => {
+    setFaqOpen(faqOpen === index ? null : index); 
+  }
 
   return (
-    <section className="flex flex-row items-center justify-center gap-4">
-        <div className="p-2 bg-white w-150 h-70 p-5 text-[#6D4C41] flex flex-col gap-4 border-[#E5E7EB] border-1 shadow-xl">
+    <section className="flex flex-row items-center justify-center gap-4 p-10">
+        <div className="bg-white w-150 h-80 p-5 text-[#6D4C41] flex flex-col gap-4 border-[#E5E7EB] border-1 shadow-xl">
             <div className="flex flex-row gap-2 font-bold text-xl">
               <span>Icon</span>
               <h4>Entre em Contato</h4>
@@ -39,54 +52,37 @@ function BoxContact() {
             </div>
             <div className="flex flex-row gap-2">
               <span>icon</span>
-              <p>(XX) 9XXXX-XXXX (WhatsApp)</p>
+              <p>{contact.telefone}</p>
             </div>
             <div className="flex flex-row gap-2">
               <span>icon</span>
-              <p>contato@feiraai.com.br</p>
+              <p>{contact.email}</p>
             </div>
-            <button className="flex flex-row gap-2 bg-[#4CAF50] p-2 w-full flex justify-center rounded-md text-white hover:bg-[#4caf4fbb] transition-colors duration-600 ">
+            <button className="flex flex-row gap-2 bg-[#4CAF50] p-2 w-full justify-center rounded-md text-white hover:bg-[#4caf4fbb] transition-colors duration-600 ">
               <span>icon</span><p>Falar no WhatsApp</p>
             </button>
         </div>
 
-        <div className="p-2 bg-white w-150 h-70 p-5 text-[#6D4C41] flex flex-col gap-4 border-[#E5E7EB] border-1 shadow-xl">
+        <div className="bg-white w-150 h-80 p-5 text-[#6D4C41] flex flex-col gap-4 border-[#E5E7EB] border-1 shadow-xl ">
             <div className="font-bold text-xl">
               <h4>Dúvidas Frequentes (FAQ)</h4>
             </div>
 
-            <div className="border-b-1">
-              <button className="flex flex-row justify-between font-medium hover:text-green-600">
-                <p>{faqs[0].question}</p>
-                <span>icon</span>
-              </button>
-              
-              <p>{faqs[0].answer}</p>
-            </div>
-            <div>
-              <button className="flex flex-row justify-between font-medium hover:text-green-600">
-                <p>{faqs[1].question}</p>
-                <span>icon</span>
-              </button>
-              
-              <p>{faqs[1].answer}</p>
-            </div>
-            <div>
-              <button className="flex flex-row justify-between font-medium hover:text-green-600">
-                <p>{faqs[2].question}</p>
-                <span>icon</span>
-              </button>
-              
-              <p>{faqs[2].answer}</p>
-            </div>
-            <div>
-              <button className="flex flex-row justify-between font-medium hover:text-green-600">
-                <p>{faqs[3].question}</p>
-                <span>icon</span>
-              </button>
-              
-              <p>{faqs[3].answer}</p>
-            </div>
+            {faqs.map((faq, index) => (
+          <div key={index} className="border-b border-gray-200 pb-2">
+            <button
+              className="flex flex-row justify-between w-full font-medium hover:text-green-600"
+              onClick={() => toggle(index)}
+            >
+              <p>{faq.question}</p>
+              <span>{faqOpen === index ? "▲" : "▼"}</span>
+            </button>
+
+            {faqOpen === index && (
+              <p className="mt-2 text-sm text-gray-600">{faq.answer}</p>
+            )}
+          </div>
+        ))}
             
         </div>
     </section>
